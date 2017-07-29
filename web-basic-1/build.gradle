@@ -1,0 +1,55 @@
+apply plugin: 'java'
+
+
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }  
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8 
+    
+	tasks.withType(JavaCompile) {
+    	options.encoding = 'ISO-8859-1'
+    }
+
+dependencies {
+	    testCompile 'junit:junit:4.12'
+	    
+	    //Adicional a este jar, lomok debe instalarse en la IDE para que las clases compilen. 
+	    //Ver https://projectlombok.org/
+	    compile 'org.projectlombok:lombok:1.16.18'
+	    
+	    compile 'org.slf4j:slf4j-api:1.7.25'
+	    runtime 'org.slf4j:slf4j-log4j12:1.7.25'
+	    compileOnly 'javax:javaee-web-api:7.0'
+}
+
+/**
+* Configuracion para el plugin de gretty - Este plugin es excelente para probar app Web.
+* Entre sus funciones, tiene soporte para Jetty y hot deploy.
+* Para ver toda la  funcionalidad: http://akhikhl.github.io/gretty-doc/
+* Para levantar jetty y probar la aplicacion, en consola dentro del directorio del
+* proyecto ejecutar:
+*  gradle appRun
+*  Acceder al directorio raiz:
+*    http://localhost:8080/web-basic-1
+* Para acceder al servlet:
+*    http://localhost:8080/web-basic-1/holaMundo
+**/ 
+
+buildscript {
+  repositories {
+   jcenter()
+  }
+  dependencies {
+    classpath "org.akhikhl.gretty:gretty:+"
+  }
+}
+
+apply plugin: 'org.akhikhl.gretty'
+
+gretty {
+	loggingLevel = 'DEBUG'
+	jvmArgs = ['-Dlog4j.configuration=file:src/test/resources/log4j.properties']
+}
