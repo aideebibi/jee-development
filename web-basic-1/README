@@ -1,0 +1,12 @@
+Este proyecto simple muestra el HolaMundo con un Servlet - Super básico -
+Se emplea  Gradle  y el plugin Gretty  para probar.
+Se hace uso del proyecto Lombok en especial @Slf4
+Para probar, se requiere instalar gradle, y lombok en la IDE.
+Para ejecutar la aplicación, ejecutar a nivel raiz del proyecto
+
+gradle appRun
+
+Acceder en el navegador
+http://localhost:8080/web-basic-1/holaMundo
+
+Ver  build.gradle  para detalles.

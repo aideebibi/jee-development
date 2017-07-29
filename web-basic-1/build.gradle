@@ -27,6 +27,7 @@ dependencies {
 
 /**
 * Configuracion para el plugin de gretty - Este plugin es excelente para probar app Web.
+* Sitio principal: https://github.com/akhikhl/gretty
 * Entre sus funciones, tiene soporte para Jetty y hot deploy.
 * Para ver toda la  funcionalidad: http://akhikhl.github.io/gretty-doc/
 * Para levantar jetty y probar la aplicacion, en consola dentro del directorio del
